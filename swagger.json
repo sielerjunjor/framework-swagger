@@ -1,0 +1,126 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "frameworks",
+        "version": "1.0.0",
+        "description": "BA-Swagger UI"
+    },
+    "paths": {
+        "/frameworks": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "Gets all frameworks",
+                        "schema": {
+                            "$ref": "#/definitions/frameworks"
+                        }
+                    }
+                },
+                "summary": "gets all frameworks"
+            },
+            "post": {
+                "parameters": [
+                    {
+                        "name": "body",
+                        "schema": {
+                            "$ref": "#/definitions/frameworks"
+                        },
+                        "in": "body",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "successfully created",
+                        "schema": {
+                            "$ref": "#/definitions/frameworks"
+                        }
+                    }
+                },
+                "summary": "create framework"
+            }
+        },
+        "/frameworks/{frameworksId}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "Successful response - returns a single `frameworks`.",
+                        "schema": {
+                            "$ref": "#/definitions/frameworks"
+                        }
+                    }
+                },
+                "operationId": "getframeworks",
+                "summary": "Get a frameworks",
+                "description": "Gets the details of a single instance of a `frameworks`."
+            },
+            "put": {
+                "parameters": [
+                    {
+                        "name": "body",
+                        "description": "Updated `frameworks` information.",
+                        "schema": {
+                            "$ref": "#/definitions/frameworks"
+                        },
+                        "in": "body",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Successful response."
+                    }
+                },
+                "operationId": "updateframeworks",
+                "summary": "Update a frameworks",
+                "description": "Updates an existing `frameworks`."
+            },
+            "delete": {
+                "responses": {
+                    "204": {
+                        "description": "Successful response."
+                    }
+                },
+                "operationId": "deleteframeworks",
+                "summary": "Delete a frameworks",
+                "description": "Deletes an existing `frameworks`."
+            },
+            "parameters": [
+                {
+                    "name": "frameworksId",
+                    "description": "A unique identifier for a `frameworks`.",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                }
+            ]
+        }
+    },
+    "definitions": {
+        "frameworks": {
+            "title": "Root Type for frameworks",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                }
+            },
+            "example": {
+                "id": "5d35a1fe7cc9f336c049633d",
+                "name": "Node",
+                "type": "JS",
+                "description": "JS are u serious"
+            }
+        }
+    }
+}
